@@ -11,6 +11,7 @@
 /[Uu]ser[Ss]ettings/
 /[Mm]emoryCaptures/
 /[Dd]ebug/
+/[Ll]ogger/
 
 # Asset meta data should only be ignored when the asset itself is not tracked
 !/[Aa]ssets/**/*.meta
