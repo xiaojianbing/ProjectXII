@@ -1,0 +1,85 @@
+# ProjectXII 项目开发指南 (Project Rules)
+
+## 0. 设计参考思维 (Design Mindset)
+在分析需求与实现功能时，必须主动对标以下行业标杆的实现逻辑：
+- **移动与平台跳跃**: *Celeste (蔚蓝)*, *Hollow Knight (空洞骑士)*, *Prince of Persia: The Lost Crown*。关注：土狼时间 (Coyote Time)、输入缓冲 (Jump Buffer)、边缘修正 (Corner Correction)。
+- **高速战斗与动作**: *Ninja Gaiden (忍龙)*, *Devil May Cry (鬼泣)*, *Sekiro (只狼)*, *Nioh (仁王)*。关注：顿帧 (HitStop)、动画取消 (Cancel Window)、受击硬直、输入队列。
+- **执行要求**: 当用户提出模糊需求（如"优化手感"）时，请直接引用上述游戏的具体机制（例如"类似蔚蓝的冲刺惯性保留"）提出建议。特别是用户提出了明显不同与行业主流的建议时，不要随意附和用户，要提出自己的建议。
+
+## 1. 核心架构约束 (Architecture Constraints)
+
+### 1.1 物理系统
+- 使用 `Rigidbody2D (Kinematic)` 搭配自定义射线/BoxCast 碰撞检测，实现像素级精准控制。
+- 移动逻辑必须在 `FixedUpdate` 中通过 `MovePosition` 执行。**严禁**在 `Update` 中直接修改物理位置或速度。
+- 重力、加速度等物理参数必须通过公式推导（如 `gravity = -2h/t²`），禁止使用"魔法数字"硬编码。
+
+### 1.2 状态管理
+- 角色行为必须通过**分层有限状态机 (HFSM)** 管理。严禁在单个 MonoBehaviour 中堆砌大量 `if-else` 或 `switch-case` 判断。
+- 状态切换前必须检查 `ActionPriority`。高优先级动作（受击、冲刺）可打断低优先级动作（移动、跳跃），反之不可。
+
+### 1.3 输入系统
+- 使用 Unity New Input System。
+- 必须通过独立的 `PlayerInputHandler` 层解耦原始输入与角色逻辑。
+- 所有战斗/动作输入必须经过**输入缓存 (Input Buffer)** 处理，以保证类似《鬼泣》的连招响应。
+
+### 1.4 代码规范
+- 复杂逻辑块必须添加中文注释。
+- **日志规范 (Logging)**:
+  - 必须使用 `PanCake.Metroidvania.Utils.DebugLogger` 进行所有的日志输出，**严禁**直接使用 `UnityEngine.Debug.Log`。
+  - 此工具已实现在 `Assets/Scripts/PanCake/Utils/` 目录下，支持时间戳、彩色前后缀以及日志文件落地等高级功能。
+  - 使用规范：`DebugLogger.Log(this, "Your message", showDebugInfo: true)`，对于静态类第一个参数传入当前类名字符串。
+- **调试工作流 (Debug Workflow)**:
+  - 每次用户报告 Bug 或提出问题需要修改代码时，**必须首先读取 `Logger` 目录下最新的日志文件**（按修改时间排序取最新），分析运行时的实际状态后再进行代码修改。
+  - 日志目录路径：`d:/projects/ProjectXII/Logger/`
+- 每次修改或创建代码后，必须主动检查是否存在明显语法错误（如未定义的方法、拼写错误），确保代码可编译。
+
+## 2. 设计协作规约 (Design Collaboration)
+- **@Designer** 在设计文档中必须标注技术风险等级（🟢低 / 🟡中 / 🔴高）。
+- **@Developer** 有权对 🔴高风险项 提出替代方案，并触发 Design Review 重新评估。
+- 当 Designer 和 Developer 对方案存在分歧时，必须在设计文档中记录双方论点，最终由用户裁决。
+
+## 3. Unity Agentic 开发铁律 (Agentic Unity Workflow)
+- **[铁律]**：严禁 AI 直接尝试解析或修改 `.prefab / .unity / .asset` 等含有复杂 GUID / FileID 的序列化文件。
+- 任何对场景结构、预制体依赖的修改、组件的注入、以及自动化测试环境的搭建，**都必须通过编写对应的 C# Editor 扩展脚本来以代码的形式执行挂载与连线**。
+- 这不仅能完全利用 C# 强类型编译排错的优势，更能将所有的配置过程**代码化 (Infrastructure as Code)**，形成可复用、可传承的技能库。
+
+## 4. 文档驱动开发铁律 (Documentation-Driven Development)
+- **[铁律]：在没有通过设计并持久化为工程文档的情况下，绝对禁止开始进行任何代码开发。**
+- 任何人提出新 Feature，必需严格走完流程：@Producer 更新 Feature Specs/Priority → @Designer 更新 Module Design 并包含测试用例 → User Review 确认 → @Developer 开始开发。
+
+## 5. 测试场景布局规约 (Test Scene Layout Rules)
+- 测试场景中任何两块碰撞体之间的净空**必须满足最小间距约束**（定义在 `P0A_TestSceneSetup.cs` 顶部常量），严禁硬编码坐标后不验证间距。
+- 垂直净空 ≥ `MIN_VERTICAL_CLEARANCE`（普通通道）或 `CROUCH_TUNNEL_CLEARANCE`（专用蹲下通道）。
+- 水平间距 ≥ `MIN_HORIZONTAL_GAP`，确保角色不被两面墙夹住。
+- 新增平台时必须引用这些常量计算位置，不得使用裸数字。
+
+## 6. 技术栈标准 (Tech Stack Standards)
+> 本节随项目推进逐步补充。当引入新框架/插件时，必须在此注册。
+
+### 自研模块
+- **输入系统**: Unity New Input System (`com.unity.inputsystem`)
+- **物理控制**: Kinematic Rigidbody2D + 自定义 Raycast/BoxCast 碰撞检测
+- **状态管理**: 自研 HFSM + `ICharacterInput` 输入抽象
+- **连招/战斗系统**: 全自研（无现成框架满足鬼泣/忍龙级需求）
+- **角色属性**: 自研 `CharacterStats` + `CharacterContext`
+
+### 第三方依赖（按引入阶段）
+- **MMFeedbacks / Feel** (`com.moremountains.feedbacks`): 打击反馈（HitStop/屏幕震动/粒子）→ P0-B 引入
+- **Cinemachine** (`com.unity.cinemachine`): 相机系统（战斗追焦/Boss 锁定）→ P0-B 引入
+- **Behavior Designer**: Enemy AI 行为树 → P0-C+ 引入
+- **DOTween** (可选): 动画补间 → 按需引入
+
+### ❌ 明确不引入
+- **Corgi Engine**: 架构冲突（Ability 堆叠 vs 我们的 HFSM），分析详见 [P0A 设计文档 §附录](file:///d:/projects/ProjectXII/Docs/ModuleDesign/P0A_CharacterAndLocomotion.md)
+
+## 5. 文档索引 (Documentation Index)
+> 所有设计文档和代码注释中使用的专业术语必须与术语表保持一致。
+
+- **术语表**: [Docs/Glossary.md](file:///d:/projects/ProjectXII/Docs/Glossary.md)
+- **Feature Specs**: [Docs/FeatureSpecs/](file:///d:/projects/ProjectXII/Docs/FeatureSpecs/)
+  - [CorePriority.md](file:///d:/projects/ProjectXII/Docs/FeatureSpecs/CorePriority.md) — P0 四阶段优先级
+  - [CharacterFeature.md](file:///d:/projects/ProjectXII/Docs/FeatureSpecs/CharacterFeature.md) — 角色统一系统
+  - [P1P2_Backlog.md](file:///d:/projects/ProjectXII/Docs/FeatureSpecs/P1P2_Backlog.md) — P1/P2 待办
+- **技术设计**: [Docs/ModuleDesign/](file:///d:/projects/ProjectXII/Docs/ModuleDesign/)
+  - [P0A_CharacterAndLocomotion.md](file:///d:/projects/ProjectXII/Docs/ModuleDesign/P0A_CharacterAndLocomotion.md) — Character + 移动系统设计
+

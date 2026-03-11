@@ -1,0 +1,235 @@
+==========================================
+Game Log - ProjectXII
+Started at: 2026-03-11 14:58:47
+Unity Version: 2022.3.62f3
+Platform: WindowsEditor
+==========================================
+
+[14:58:47.593] [Log] ✅ FileLogger 已启动，日志文件路径: D:\projects\ProjectXII\Logger\P0A_Locomotion_Log_2026-03-11_14-58-47.txt
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.FileLogger:InitializeLogger () (at Assets/Scripts/PanCake/Utils/FileLogger.cs:106)
+PanCake.Metroidvania.Utils.FileLogger:Awake () (at Assets/Scripts/PanCake/Utils/FileLogger.cs:59)
+
+[14:59:05.580] [Log] [00:00:17.020] [DeathZoneTrigger] ☠️ Player_Test fell into the abyss! Dealing 20 damage.
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.DeathZoneTrigger:OnTriggerEnter2D (UnityEngine.Collider2D) (at Assets/Scripts/Core/Character/DeathZoneTrigger.cs:54)
+
+[14:59:06.376] [Log] [00:00:17.024] [DeathZoneTrigger] 🔄 Respawned at (-5.00, -0.95, 0.00).
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.DeathZoneTrigger/<RespawnSequence>d__12:MoveNext () (at Assets/Scripts/Core/Character/DeathZoneTrigger.cs:113)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+[14:59:09.278] [Log] [00:00:19.520] [DeathZoneTrigger] ☠️ Player_Test fell into the abyss! Dealing 20 damage.
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.DeathZoneTrigger:OnTriggerEnter2D (UnityEngine.Collider2D) (at Assets/Scripts/Core/Character/DeathZoneTrigger.cs:54)
+
+[14:59:10.071] [Log] [00:00:19.524] [DeathZoneTrigger] 🔄 Respawned at (-5.00, -0.95, 0.00).
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.DeathZoneTrigger/<RespawnSequence>d__12:MoveNext () (at Assets/Scripts/Core/Character/DeathZoneTrigger.cs:113)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+[14:59:11.316] [Log] [00:00:20.366] [PhysicsController] [EdgeCheck] wallHit=True ledgeFree=True IsOnEdge=True wallCheckPos=(-5.50, 1.83, 0.00) ledgeCheckPos=(-5.50, 2.83, 0.00) dir=(-1.00, 0.00) rayDist=0.52 facing=-1
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.PhysicsController:CheckEdge (int) (at Assets/Scripts/Core/Character/PhysicsController.cs:243)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:68)
+
+[14:59:11.379] [Log] [00:00:20.431] [String] 🧗 Edge grab triggered! Transitioning to EdgeGrab.
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.States.CharacterFallState:CheckTransitions () (at Assets/Scripts/Core/Character/States/Airborne/CharacterFallState.cs:69)
+ProjectXII.Core.StateMachine:Update () (at Assets/Scripts/Core/StateMachine/StateMachine.cs:33)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:77)
+
+[14:59:11.380] [Log] [00:00:20.431] [String] ✅ EdgeGrab entered! Gravity OFF, Velocity zeroed.
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.States.CharacterEdgeGrabState:Enter () (at Assets/Scripts/Core/Character/States/Wall/CharacterEdgeGrabState.cs:24)
+ProjectXII.Core.StateMachine:ChangeState (ProjectXII.Core.IState) (at Assets/Scripts/Core/StateMachine/StateMachine.cs:26)
+ProjectXII.Core.Character.States.CharacterFallState:CheckTransitions () (at Assets/Scripts/Core/Character/States/Airborne/CharacterFallState.cs:70)
+ProjectXII.Core.StateMachine:Update () (at Assets/Scripts/Core/StateMachine/StateMachine.cs:33)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:77)
+
+[14:59:11.380] [Log] [00:00:20.431] [String] 📌 Snapped to edge: wallX=-6.00 platformTop=2.70 snapPos=(-5.58, 1.70)
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.States.CharacterEdgeGrabState:SnapToEdge () (at Assets/Scripts/Core/Character/States/Wall/CharacterEdgeGrabState.cs:90)
+ProjectXII.Core.Character.States.CharacterEdgeGrabState:Enter () (at Assets/Scripts/Core/Character/States/Wall/CharacterEdgeGrabState.cs:34)
+ProjectXII.Core.StateMachine:ChangeState (ProjectXII.Core.IState) (at Assets/Scripts/Core/StateMachine/StateMachine.cs:26)
+ProjectXII.Core.Character.States.CharacterFallState:CheckTransitions () (at Assets/Scripts/Core/Character/States/Airborne/CharacterFallState.cs:70)
+ProjectXII.Core.StateMachine:Update () (at Assets/Scripts/Core/StateMachine/StateMachine.cs:33)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:77)
+
+[14:59:19.169] [Log] [00:00:28.219] [DeathZoneTrigger] ☠️ Player_Test fell into the abyss! Dealing 20 damage.
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.DeathZoneTrigger:OnTriggerEnter2D (UnityEngine.Collider2D) (at Assets/Scripts/Core/Character/DeathZoneTrigger.cs:54)
+
+[14:59:19.965] [Log] [00:00:28.221] [DeathZoneTrigger] 🔄 Respawned at (-5.00, -0.95, 0.00).
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.DeathZoneTrigger/<RespawnSequence>d__12:MoveNext () (at Assets/Scripts/Core/Character/DeathZoneTrigger.cs:113)
+UnityEngine.SetupCoroutine:InvokeMoveNext (System.Collections.IEnumerator,intptr)
+
+[14:59:21.535] [Log] [00:00:29.384] [PhysicsController] [EdgeCheck] wallHit=True ledgeFree=True IsOnEdge=True wallCheckPos=(-3.78, -2.31, 0.00) ledgeCheckPos=(-3.78, -1.31, 0.00) dir=(-1.00, 0.00) rayDist=0.52 facing=-1
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.PhysicsController:CheckEdge (int) (at Assets/Scripts/Core/Character/PhysicsController.cs:243)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:68)
+
+[14:59:21.535] [Log] [00:00:29.384] [String] 🧗 Edge grab triggered! Transitioning to EdgeGrab.
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.States.CharacterFallState:CheckTransitions () (at Assets/Scripts/Core/Character/States/Airborne/CharacterFallState.cs:69)
+ProjectXII.Core.StateMachine:Update () (at Assets/Scripts/Core/StateMachine/StateMachine.cs:33)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:77)
+
+[14:59:21.535] [Log] [00:00:29.384] [String] ✅ EdgeGrab entered! Gravity OFF, Velocity zeroed.
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.States.CharacterEdgeGrabState:Enter () (at Assets/Scripts/Core/Character/States/Wall/CharacterEdgeGrabState.cs:24)
+ProjectXII.Core.StateMachine:ChangeState (ProjectXII.Core.IState) (at Assets/Scripts/Core/StateMachine/StateMachine.cs:26)
+ProjectXII.Core.Character.States.CharacterFallState:CheckTransitions () (at Assets/Scripts/Core/Character/States/Airborne/CharacterFallState.cs:70)
+ProjectXII.Core.StateMachine:Update () (at Assets/Scripts/Core/StateMachine/StateMachine.cs:33)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:77)
+
+[14:59:21.535] [Log] [00:00:29.384] [String] 📌 Snapped to edge: wallX=-4.00 platformTop=-2.00 snapPos=(-3.58, -3.00)
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.States.CharacterEdgeGrabState:SnapToEdge () (at Assets/Scripts/Core/Character/States/Wall/CharacterEdgeGrabState.cs:90)
+ProjectXII.Core.Character.States.CharacterEdgeGrabState:Enter () (at Assets/Scripts/Core/Character/States/Wall/CharacterEdgeGrabState.cs:34)
+ProjectXII.Core.StateMachine:ChangeState (ProjectXII.Core.IState) (at Assets/Scripts/Core/StateMachine/StateMachine.cs:26)
+ProjectXII.Core.Character.States.CharacterFallState:CheckTransitions () (at Assets/Scripts/Core/Character/States/Airborne/CharacterFallState.cs:70)
+ProjectXII.Core.StateMachine:Update () (at Assets/Scripts/Core/StateMachine/StateMachine.cs:33)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:77)
+
+[14:59:32.932] [Log] [00:00:40.781] [PhysicsController] [EdgeCheck] wallHit=True ledgeFree=True IsOnEdge=True wallCheckPos=(-10.44, 2.54, 0.00) ledgeCheckPos=(-10.44, 3.54, 0.00) dir=(1.00, 0.00) rayDist=0.52 facing=1
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.PhysicsController:CheckEdge (int) (at Assets/Scripts/Core/Character/PhysicsController.cs:243)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:68)
+
+[14:59:33.796] [Log] [00:00:41.645] [String] 🧗 Edge grab triggered! Transitioning to EdgeGrab.
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.States.CharacterFallState:CheckTransitions () (at Assets/Scripts/Core/Character/States/Airborne/CharacterFallState.cs:69)
+ProjectXII.Core.StateMachine:Update () (at Assets/Scripts/Core/StateMachine/StateMachine.cs:33)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:77)
+
+[14:59:33.797] [Log] [00:00:41.645] [String] ✅ EdgeGrab entered! Gravity OFF, Velocity zeroed.
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.States.CharacterEdgeGrabState:Enter () (at Assets/Scripts/Core/Character/States/Wall/CharacterEdgeGrabState.cs:24)
+ProjectXII.Core.StateMachine:ChangeState (ProjectXII.Core.IState) (at Assets/Scripts/Core/StateMachine/StateMachine.cs:26)
+ProjectXII.Core.Character.States.CharacterFallState:CheckTransitions () (at Assets/Scripts/Core/Character/States/Airborne/CharacterFallState.cs:70)
+ProjectXII.Core.StateMachine:Update () (at Assets/Scripts/Core/StateMachine/StateMachine.cs:33)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:77)
+
+[14:59:33.797] [Log] [00:00:41.645] [String] 📌 Snapped to edge: wallX=-4.00 platformTop=-2.00 snapPos=(-3.58, -3.00)
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.States.CharacterEdgeGrabState:SnapToEdge () (at Assets/Scripts/Core/Character/States/Wall/CharacterEdgeGrabState.cs:90)
+ProjectXII.Core.Character.States.CharacterEdgeGrabState:Enter () (at Assets/Scripts/Core/Character/States/Wall/CharacterEdgeGrabState.cs:34)
+ProjectXII.Core.StateMachine:ChangeState (ProjectXII.Core.IState) (at Assets/Scripts/Core/StateMachine/StateMachine.cs:26)
+ProjectXII.Core.Character.States.CharacterFallState:CheckTransitions () (at Assets/Scripts/Core/Character/States/Airborne/CharacterFallState.cs:70)
+ProjectXII.Core.StateMachine:Update () (at Assets/Scripts/Core/StateMachine/StateMachine.cs:33)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:77)
+
+[14:59:34.199] [Log] [00:00:42.048] [PhysicsController] [EdgeCheck] wallHit=True ledgeFree=True IsOnEdge=True wallCheckPos=(-3.99, -2.57, 0.00) ledgeCheckPos=(-3.99, -1.57, 0.00) dir=(-1.00, 0.00) rayDist=0.52 facing=-1
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.PhysicsController:CheckEdge (int) (at Assets/Scripts/Core/Character/PhysicsController.cs:243)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:68)
+
+[14:59:34.463] [Log] [00:00:42.312] [String] 🧗 Edge grab triggered! Transitioning to EdgeGrab.
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.States.CharacterFallState:CheckTransitions () (at Assets/Scripts/Core/Character/States/Airborne/CharacterFallState.cs:69)
+ProjectXII.Core.StateMachine:Update () (at Assets/Scripts/Core/StateMachine/StateMachine.cs:33)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:77)
+
+[14:59:34.464] [Log] [00:00:42.312] [String] ✅ EdgeGrab entered! Gravity OFF, Velocity zeroed.
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.States.CharacterEdgeGrabState:Enter () (at Assets/Scripts/Core/Character/States/Wall/CharacterEdgeGrabState.cs:24)
+ProjectXII.Core.StateMachine:ChangeState (ProjectXII.Core.IState) (at Assets/Scripts/Core/StateMachine/StateMachine.cs:26)
+ProjectXII.Core.Character.States.CharacterFallState:CheckTransitions () (at Assets/Scripts/Core/Character/States/Airborne/CharacterFallState.cs:70)
+ProjectXII.Core.StateMachine:Update () (at Assets/Scripts/Core/StateMachine/StateMachine.cs:33)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:77)
+
+[14:59:34.464] [Log] [00:00:42.312] [String] 📌 Snapped to edge: wallX=-5.50 platformTop=0.30 snapPos=(-5.08, -0.70)
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.States.CharacterEdgeGrabState:SnapToEdge () (at Assets/Scripts/Core/Character/States/Wall/CharacterEdgeGrabState.cs:90)
+ProjectXII.Core.Character.States.CharacterEdgeGrabState:Enter () (at Assets/Scripts/Core/Character/States/Wall/CharacterEdgeGrabState.cs:34)
+ProjectXII.Core.StateMachine:ChangeState (ProjectXII.Core.IState) (at Assets/Scripts/Core/StateMachine/StateMachine.cs:26)
+ProjectXII.Core.Character.States.CharacterFallState:CheckTransitions () (at Assets/Scripts/Core/Character/States/Airborne/CharacterFallState.cs:70)
+ProjectXII.Core.StateMachine:Update () (at Assets/Scripts/Core/StateMachine/StateMachine.cs:33)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:77)
+
+[14:59:39.390] [Log] [00:00:47.240] [PhysicsController] [EdgeCheck] wallHit=True ledgeFree=True IsOnEdge=True wallCheckPos=(-10.34, 2.22, 0.00) ledgeCheckPos=(-10.34, 3.22, 0.00) dir=(1.00, 0.00) rayDist=0.52 facing=1
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.PhysicsController:CheckEdge (int) (at Assets/Scripts/Core/Character/PhysicsController.cs:243)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:68)
+
+[14:59:39.477] [Log] [00:00:47.327] [String] 🧗 Edge grab triggered! Transitioning to EdgeGrab.
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.States.CharacterFallState:CheckTransitions () (at Assets/Scripts/Core/Character/States/Airborne/CharacterFallState.cs:69)
+ProjectXII.Core.StateMachine:Update () (at Assets/Scripts/Core/StateMachine/StateMachine.cs:33)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:77)
+
+[14:59:39.477] [Log] [00:00:47.327] [String] ✅ EdgeGrab entered! Gravity OFF, Velocity zeroed.
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.States.CharacterEdgeGrabState:Enter () (at Assets/Scripts/Core/Character/States/Wall/CharacterEdgeGrabState.cs:24)
+ProjectXII.Core.StateMachine:ChangeState (ProjectXII.Core.IState) (at Assets/Scripts/Core/StateMachine/StateMachine.cs:26)
+ProjectXII.Core.Character.States.CharacterFallState:CheckTransitions () (at Assets/Scripts/Core/Character/States/Airborne/CharacterFallState.cs:70)
+ProjectXII.Core.StateMachine:Update () (at Assets/Scripts/Core/StateMachine/StateMachine.cs:33)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:77)
+
+[14:59:39.478] [Log] [00:00:47.327] [String] 📌 Snapped to edge: wallX=-10.00 platformTop=2.70 snapPos=(-10.42, 1.70)
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.States.CharacterEdgeGrabState:SnapToEdge () (at Assets/Scripts/Core/Character/States/Wall/CharacterEdgeGrabState.cs:90)
+ProjectXII.Core.Character.States.CharacterEdgeGrabState:Enter () (at Assets/Scripts/Core/Character/States/Wall/CharacterEdgeGrabState.cs:34)
+ProjectXII.Core.StateMachine:ChangeState (ProjectXII.Core.IState) (at Assets/Scripts/Core/StateMachine/StateMachine.cs:26)
+ProjectXII.Core.Character.States.CharacterFallState:CheckTransitions () (at Assets/Scripts/Core/Character/States/Airborne/CharacterFallState.cs:70)
+ProjectXII.Core.StateMachine:Update () (at Assets/Scripts/Core/StateMachine/StateMachine.cs:33)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:77)
+
+[14:59:40.335] [Log] [00:00:48.184] [String] 🧗 Edge grab triggered! Transitioning to EdgeGrab.
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.States.CharacterFallState:CheckTransitions () (at Assets/Scripts/Core/Character/States/Airborne/CharacterFallState.cs:69)
+ProjectXII.Core.StateMachine:Update () (at Assets/Scripts/Core/StateMachine/StateMachine.cs:33)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:77)
+
+[14:59:40.335] [Log] [00:00:48.184] [String] ✅ EdgeGrab entered! Gravity OFF, Velocity zeroed.
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.States.CharacterEdgeGrabState:Enter () (at Assets/Scripts/Core/Character/States/Wall/CharacterEdgeGrabState.cs:24)
+ProjectXII.Core.StateMachine:ChangeState (ProjectXII.Core.IState) (at Assets/Scripts/Core/StateMachine/StateMachine.cs:26)
+ProjectXII.Core.Character.States.CharacterFallState:CheckTransitions () (at Assets/Scripts/Core/Character/States/Airborne/CharacterFallState.cs:70)
+ProjectXII.Core.StateMachine:Update () (at Assets/Scripts/Core/StateMachine/StateMachine.cs:33)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:77)
+
+[14:59:40.336] [Log] [00:00:48.184] [String] 📌 Snapped to edge: wallX=-5.50 platformTop=0.30 snapPos=(-5.08, -0.70)
+UnityEngine.Debug:Log (object)
+PanCake.Metroidvania.Utils.DebugLogger:Log (object,string,bool,bool) (at Assets/Scripts/PanCake/Utils/DebugLogger.cs:56)
+ProjectXII.Core.Character.States.CharacterEdgeGrabState:SnapToEdge () (at Assets/Scripts/Core/Character/States/Wall/CharacterEdgeGrabState.cs:90)
+ProjectXII.Core.Character.States.CharacterEdgeGrabState:Enter () (at Assets/Scripts/Core/Character/States/Wall/CharacterEdgeGrabState.cs:34)
+ProjectXII.Core.StateMachine:ChangeState (ProjectXII.Core.IState) (at Assets/Scripts/Core/StateMachine/StateMachine.cs:26)
+ProjectXII.Core.Character.States.CharacterFallState:CheckTransitions () (at Assets/Scripts/Core/Character/States/Airborne/CharacterFallState.cs:70)
+ProjectXII.Core.StateMachine:Update () (at Assets/Scripts/Core/StateMachine/StateMachine.cs:33)
+ProjectXII.Player.PlayerController:Update () (at Assets/Scripts/Player/PlayerController.cs:77)
+
+
+==========================================
+Log Ended at: 2026-03-11 15:04:55
+==========================================
